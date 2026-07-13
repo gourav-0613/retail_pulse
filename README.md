@@ -47,6 +47,10 @@ The application is deployed as an interactive **Streamlit Dashboard** where user
 ```text
 https://retailpulse-rgq7dm3dok9ap7bhmappdcu.streamlit.app/
 ```
+### Google Colab Link:
+```text
+https://colab.research.google.com/drive/1CTzulpUN_2HDFRcjteue_1XjjzAgT0Ek?usp=sharing
+```
 
 ---
 
