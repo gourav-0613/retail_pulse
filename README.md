@@ -56,7 +56,7 @@ https://colab.research.google.com/drive/1CTzulpUN_2HDFRcjteue_1XjjzAgT0Ek?usp=sh
 
 # 📸 Dashboard Preview
 
-> Add your screenshots here after deployment.
+> screenshots here after deployment.
 
 ```
 assets/
