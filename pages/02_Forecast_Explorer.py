@@ -25,25 +25,41 @@ st.set_page_config(
     layout="wide",
 )
 
-col1, col2 = st.columns([1, 8])
+# =====================================================
+# Load CSS
+# =====================================================
 
-with col1:
-    st.image(
-        "assets/icons/icon-forecast.svg",
-        width=45,
-    )
-
-with col2:
+with open("assets/css.css") as f:
     st.markdown(
-    "<h1 style='margin-top:8px;'>Forecast Explorer</h1>",
-    unsafe_allow_html=True,
+        f"<style>{f.read()}</style>",
+        unsafe_allow_html=True,
     )
 
-    st.caption(
-        "Predict future retail sales using Machine Learning models."
+# =====================================================
+# Sidebar Branding
+# =====================================================
+
+brand1, brand2 = st.sidebar.columns([1, 4], gap="small")
+
+with brand1:
+    st.image(
+        "assets/retailpulse-logo.png",
+        width=48
     )
 
-st.markdown("---")
+with brand2:
+    st.markdown(
+        """
+        <div style="padding-top:10px;">
+            <h2 style="margin:0;font-size:24px;font-weight:700;color:white;">
+                Retail Pulse
+            </h2>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+st.sidebar.markdown("---")
 
 # =====================================================
 # Load Dataset

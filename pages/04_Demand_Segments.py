@@ -24,6 +24,42 @@ st.set_page_config(
     layout="wide",
 )
 
+# =====================================================
+# Load CSS
+# =====================================================
+
+with open("assets/css.css") as f:
+    st.markdown(
+        f"<style>{f.read()}</style>",
+        unsafe_allow_html=True,
+    )
+
+# =====================================================
+# Sidebar Branding
+# =====================================================
+
+brand1, brand2 = st.sidebar.columns([1, 4], gap="small")
+
+with brand1:
+    st.image(
+        "assets/retailpulse-logo.png",
+        width=48
+    )
+
+with brand2:
+    st.markdown(
+        """
+        <div style="padding-top:10px;">
+            <h2 style="margin:0;font-size:24px;font-weight:700;color:white;">
+                Retail Pulse
+            </h2>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+st.sidebar.markdown("---")
+
 c1,c2=st.columns([1,8])
 
 with c1:
