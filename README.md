@@ -56,14 +56,35 @@ https://colab.research.google.com/drive/1CTzulpUN_2HDFRcjteue_1XjjzAgT0Ek?usp=sh
 
 # 📸 Dashboard Preview
 
-> screenshots here after deployment.
+## Sales Overview
 
-assets/
-│── dashboard.png
-│── forecast.png
-│── anomaly.png
-│── clustering.png
+<p align="center">
+  <img src="assets/dashboard.png" width="100%">
+</p>
 
+---
+
+## Forecast Explorer
+
+<p align="center">
+  <img src="assets/forecast.png" width="100%">
+</p>
+
+---
+
+## Anomaly Report
+
+<p align="center">
+  <img src="assets/anomaly.png" width="100%">
+</p>
+
+---
+
+## Demand Segments
+
+<p align="center">
+  <img src="assets/clustering.png" width="100%">
+</p>
 ---
 
 # 🎯 Project Status
