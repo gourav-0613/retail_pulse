@@ -58,33 +58,11 @@ https://colab.research.google.com/drive/1CTzulpUN_2HDFRcjteue_1XjjzAgT0Ek?usp=sh
 
 > screenshots here after deployment.
 
-```
 assets/
 │── dashboard.png
 │── forecast.png
 │── anomaly.png
 │── clustering.png
-```
-
-Example
-
-```markdown
-## Dashboard
-
-![Dashboard](assets/dashboard.png)
-
-## Forecast
-
-![Forecast](assets/forecast.png)
-
-## Anomaly Detection
-
-![Anomaly](assets/anomaly.png)
-
-## Demand Segmentation
-
-![Segmentation](assets/clustering.png)
-```
 
 ---
 
