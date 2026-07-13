@@ -23,8 +23,8 @@ from utils.preprocessing import (
 # ----------------------------------------------------
 
 st.set_page_config(
-    page_title="Sales Overview",
-    page_icon="📊",
+    page_title="RetailPulse | Sales Overview",
+    page_icon="assets/retailpulse-logo.png",
     layout="wide"
 )
 
@@ -52,7 +52,7 @@ df = create_features(df)
 # SIDEBAR
 # ----------------------------------------------------
 
-st.sidebar.title("Filters")
+st.sidebar.title("Dashboard Filters")
 
 region = st.sidebar.selectbox(
     "Region",
@@ -74,7 +74,23 @@ filtered_df = filter_data(
 # TITLE
 # ----------------------------------------------------
 
-st.title("📊 Sales Overview Dashboard")
+col1, col2 = st.columns([0.6, 9])
+
+with col1:
+    st.image(
+        "assets/icons/icon-dashboard.svg",
+        width=45,
+    )
+
+with col2:
+    st.markdown(
+        "<h1 style='margin-top:8px;'>Sales Overview Dashboard</h1>",
+        unsafe_allow_html=True,
+    )
+
+st.caption(
+    "Analyze historical retail sales using interactive visualizations."
+)
 
 st.markdown("---")
 
@@ -83,7 +99,7 @@ st.markdown("---")
 # ----------------------------------------------------
 
 kpi = calculate_kpis(filtered_df)
-
+st.subheader("Business KPIs")
 c1, c2, c3, c4 = st.columns(4)
 
 c1.metric(
@@ -123,7 +139,15 @@ fig = px.bar(
 )
 
 fig.update_layout(
-    template="plotly_dark"
+    template="plotly_dark",
+    height=450,
+    margin=dict(
+        l=20,
+        r=20,
+        t=60,
+        b=20
+    ),
+    title_x=0.02,
 )
 
 st.plotly_chart(
@@ -146,7 +170,15 @@ fig2 = px.line(
 )
 
 fig2.update_layout(
-    template="plotly_dark"
+    template="plotly_dark",
+    height=450,
+    title_x=0.02,
+    margin=dict(
+        l=20,
+        r=20,
+        t=60,
+        b=20
+    )
 )
 
 st.plotly_chart(
@@ -172,7 +204,9 @@ with left:
     )
 
     fig3.update_layout(
-        template="plotly_dark"
+    template="plotly_dark",
+    height=420,
+    title_x=0.02,
     )
 
     st.plotly_chart(
@@ -191,8 +225,15 @@ with right:
         title="Category Share"
     )
 
+    fig4.update_traces(
+    textposition="inside",
+    textinfo="percent+label"
+    )
+
     fig4.update_layout(
-        template="plotly_dark"
+    template="plotly_dark",
+    height=420,
+    title_x=0.02,
     )
 
     st.plotly_chart(
@@ -216,7 +257,9 @@ fig5 = px.bar(
 )
 
 fig5.update_layout(
-    template="plotly_dark"
+    template="plotly_dark",
+    height=450,
+    title_x=0.02,
 )
 
 st.plotly_chart(
@@ -228,10 +271,10 @@ st.plotly_chart(
 # DATA
 # ----------------------------------------------------
 
-st.subheader("Dataset Preview")
+with st.expander("View Dataset Preview"):
 
-st.dataframe(
-    filtered_df,
-    use_container_width=True,
-    height=400
-)
+    st.dataframe(
+        filtered_df,
+        use_container_width=True,
+        height=400,
+    )

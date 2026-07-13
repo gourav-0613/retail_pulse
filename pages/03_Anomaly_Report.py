@@ -19,16 +19,30 @@ from utils.anomaly import (
 # =====================================================
 
 st.set_page_config(
-    page_title="Anomaly Report",
-    page_icon="🚨",
+    page_title="RetailPulse | Anomaly Report",
+    page_icon="assets/retailpulse-logo.png",
     layout="wide",
 )
 
-st.title("🚨 Sales Anomaly Report")
+c1,c2=st.columns([1,8])
 
-st.markdown(
-    "Detect unusual sales behaviour using Isolation Forest and Z-Score."
+with c1:
+    st.image(
+        "assets/icons/icon-warning.svg",
+        width=45,
+    )
+
+with c2:
+    st.markdown(
+    "<h1 style='margin-top:8px;'>Anomaly Report</h1>",
+    unsafe_allow_html=True,
+    )
+
+st.caption(
+    "Detect unusual retail sales patterns using Isolation Forest and Z-Score."
 )
+
+st.markdown("---")
 
 # =====================================================
 # Load Dataset
@@ -42,7 +56,7 @@ df = create_features(df)
 # Sidebar
 # =====================================================
 
-st.sidebar.header("Filters")
+st.sidebar.header("Analysis Filters")
 
 filter_type = st.sidebar.radio(
     "Analyze By",
@@ -166,7 +180,7 @@ else:
 # Interactive Chart
 # =====================================================
 
-st.subheader("📈 Monthly Sales with Detected Anomalies")
+st.subheader("Monthly Sales with Detected Anomalies")
 
 fig = px.scatter(
     plot_df,
@@ -181,15 +195,25 @@ fig = px.scatter(
 fig.update_traces(marker=dict(size=12))
 
 fig.update_layout(
+    template="plotly_dark",
+    height=500,
+    title_x=0.02,
     xaxis_title="Month",
     yaxis_title="Sales",
     hovermode="closest",
+    margin=dict(
+        l=20,
+        r=20,
+        t=60,
+        b=20
+    )
 )
-
 st.plotly_chart(
     fig,
     use_container_width=True,
 )
+
+st.markdown("<br>", unsafe_allow_html=True)
 
 st.divider()
 
@@ -197,7 +221,7 @@ st.divider()
 # Anomaly Table
 # =====================================================
 
-st.subheader("🚨 Detected Anomalies")
+st.subheader("Detected Anomalies")
 
 if "Status" in plot_df.columns:
     anomalies_only = plot_df[
@@ -241,7 +265,7 @@ else:
     csv = display_df.to_csv(index=False).encode("utf-8")
 
     st.download_button(
-        label="⬇ Download Anomaly Report",
+        label="Download Anomaly Report",
         data=csv,
         file_name="anomaly_report.csv",
         mime="text/csv",
@@ -249,6 +273,6 @@ else:
 
 st.divider()
 
-st.info(
-    f"Current Detection Method: **{method}**"
+st.success(
+    f"Detection Method: {method}"
 )

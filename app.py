@@ -5,10 +5,10 @@ import streamlit as st
 # -----------------------------------------------------
 
 st.set_page_config(
-    page_title="RetailPulse",
-    page_icon="📊",
+    page_title="RetailPulse: Forecasting & Demand Analytics",
+    page_icon="assets/retailpulse-logo.png",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
 )
 
 # -----------------------------------------------------
@@ -18,52 +18,127 @@ st.set_page_config(
 with open("assets/css.css") as f:
     st.markdown(
         f"<style>{f.read()}</style>",
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
 # -----------------------------------------------------
-# Hero
+# Header
 # -----------------------------------------------------
 
-st.title("📊 RetailPulse")
+col1, col2, col3 = st.columns([1,8,1])
 
-st.subheader(
-    "AI-Powered Retail Sales Forecasting & Demand Analytics Dashboard"
+with col2:
+    st.image(
+        "assets/hero.svg",
+        width=950,
+    )
+
+with col2:
+    st.title("RetailPulse: Forecasting & Demand Analytics")
+    st.caption(
+        "Retail Intelligence Dashboard"
+    )
+
+st.markdown("---")
+
+# -----------------------------------------------------
+# Project Overview
+# -----------------------------------------------------
+
+st.subheader("Project Overview")
+
+st.write(
+    """
+RetailPulse is an end-to-end AI-powered retail analytics dashboard built
+using **Python, Streamlit, Scikit-learn and Machine Learning**.
+
+The dashboard enables business users to analyze historical sales,
+forecast future demand, detect anomalies and identify demand segments
+through interactive visualizations.
+"""
 )
 
 st.markdown("---")
 
-st.markdown(
-"""
-RetailPulse is an interactive dashboard developed for retail sales analytics.
+# -----------------------------------------------------
+# Features
+# -----------------------------------------------------
 
-### Features
+st.subheader("Dashboard Features")
 
-- 📈 Sales Overview Dashboard
-- 🔮 Sales Forecast Explorer
-- 🚨 Anomaly Detection
-- 📦 Product Demand Segmentation
+c1, c2, c3, c4 = st.columns(4)
 
----
+with c1:
+    st.image(
+        "assets/icons/icon-dashboard.svg",
+        width=45,
+    )
+    st.markdown("### Sales Overview")
 
-### Models Used
+with c2:
+    st.image(
+        "assets/icons/icon-forecast.svg",
+        width=45,
+    )
+    st.markdown("### Forecast Explorer")
 
+with c3:
+    st.image(
+        "assets/icons/icon-warning.svg",
+        width=45,
+    )
+    st.markdown("### Anomaly Report")
+
+with c4:
+    st.image(
+        "assets/icons/icon-demand.svg",
+        width=45,
+    )
+    st.markdown("### Demand Segments")
+
+st.markdown("---")
+
+# -----------------------------------------------------
+# Models & Dataset
+# -----------------------------------------------------
+
+left, right = st.columns(2)
+
+with left:
+
+    st.image(
+        "assets/icons/icon-ai.svg",
+        width=45,
+    )
+
+    st.subheader("Models Used")
+
+    st.markdown("""
 - Gradient Boosting Regressor
 - SARIMA
 - Isolation Forest
-- KMeans Clustering
----
+- K-Means Clustering
+""")
 
-### Dataset
+with right:
 
-Superstore Sales Dataset
+    st.image(
+        "assets/icons/icon-database.svg",
+        width=45,
+    )
 
----
+    st.subheader("Dataset")
 
-👈 Use the left sidebar to open each dashboard page.
-"""
-)
+    st.write(
+        "Superstore Sales Dataset"
+    )
 
-st.info(
-    "👈 Open the pages from the left sidebar to explore the dashboard."
+st.markdown("---")
+
+# -----------------------------------------------------
+# Footer
+# -----------------------------------------------------
+
+st.success(
+    "Open the pages from the left sidebar to explore the complete dashboard."
 )

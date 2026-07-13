@@ -19,19 +19,30 @@ from utils.clustering import (
 # =====================================================
 
 st.set_page_config(
-    page_title="Demand Segments",
-    page_icon="📦",
+    page_title="RetailPulse | Demand Segments",
+    page_icon="assets/retailpulse-logo.png",
     layout="wide",
 )
 
-st.title("📦 Product Demand Segmentation")
+c1,c2=st.columns([1,8])
 
-st.markdown(
-    """
-Group products into demand segments using
-K-Means Clustering.
-"""
+with c1:
+    st.image(
+        "assets/icons/icon-demand.svg",
+        width=45,
+    )
+
+with c2:
+    st.markdown(
+    "<h1 style='margin-top:8px;'>Demand Segments</h1>",
+    unsafe_allow_html=True,
+    )
+
+st.caption(
+    "Identify product demand groups using K-Means Clustering."
 )
+
+st.markdown("---")
 
 # =====================================================
 # Load Dataset
@@ -45,7 +56,7 @@ df = create_features(df)
 # Sidebar
 # =====================================================
 
-st.sidebar.header("Segmentation Settings")
+st.sidebar.header("Clustering Settings")
 
 cluster_count = st.sidebar.slider(
     "Number of Clusters",
@@ -61,14 +72,13 @@ cluster_count = st.sidebar.slider(
 cluster_df = demand_segmentation(df)
 
 summary = cluster_summary(df)
-
-cluster_df["Cluster"] = cluster_df["Cluster"].astype(str)
-
+ 
 # =====================================================
 # KPI Cards
 # =====================================================
 
 total_products = len(cluster_df)
+st.subheader("Demand Summary")
 
 avg_sales = cluster_df["Total_Sales"].mean()
 
@@ -100,20 +110,34 @@ st.divider()
 # Scatter Plot
 # =====================================================
 
-st.subheader("📊 Demand Clusters")
+st.subheader("Demand Cluster Visualization")
 
 fig = px.scatter(
     cluster_df,
     x="Average_Sales",
     y="Total_Sales",
-    color="Cluster",
+    color="Demand Segment",
     hover_name="Sub-Category",
     size="Orders",
+    color_discrete_map={
+        "High Demand": "#22C55E",
+        "Medium Demand": "#F59E0B",
+        "Low Demand": "#EF4444",
+    }
 )
 
 fig.update_layout(
-    xaxis_title="Average_Sales",
-    yaxis_title="Total_Sales",
+    template="plotly_dark",
+    height=500,
+    title_x=0.02,
+    xaxis_title="Average Sales",
+    yaxis_title="Total Sales",
+    margin=dict(
+        l=20,
+        r=20,
+        t=60,
+        b=20
+    )
 )
 
 st.plotly_chart(
@@ -121,18 +145,19 @@ st.plotly_chart(
     use_container_width=True,
 )
 
+st.markdown("<br>", unsafe_allow_html=True)
 st.divider()
 
 # =====================================================
 # Cluster Summary
 # =====================================================
 
-st.subheader("📋 Product Segments")
+st.subheader("Product Demand Segments")
 
 st.dataframe(
     cluster_df.sort_values(
         [
-            "Cluster",
+            "Demand Segment",
             "Total_Sales"
         ],
         ascending=[
@@ -150,7 +175,7 @@ st.divider()
 # Cluster Statistics
 # =====================================================
 
-st.subheader("📈 Demand Segment Summary")
+st.subheader("Cluster Summary")
 
 st.dataframe(
     summary,
@@ -161,7 +186,7 @@ st.dataframe(
 csv = cluster_df.to_csv(index=False).encode("utf-8")
 
 st.download_button(
-    "⬇ Download Demand Segments",
+    "Download Demand Segment Report",
     csv,
     "demand_segments.csv",
     "text/csv",

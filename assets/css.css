@@ -1,84 +1,239 @@
-
 /* =======================================================
-   RetailPulse Dashboard
+   RetailPulse Dashboard Theme
 ======================================================= */
+
+/* ------------------------------
+   Main Background
+------------------------------ */
 
 .main {
     background-color: #0E1117;
 }
 
+/* ------------------------------
+   Container
+------------------------------ */
+
 .block-container {
-    padding-top: 2rem;
+    padding-top: 1rem;
     padding-bottom: 2rem;
+    max-width: 95%;
 }
 
+section.main > div {
+    padding-top: 0.5rem;
+}
+
+/* ------------------------------
+   Headings
+------------------------------ */
+
 h1 {
-    color: white;
+    color: #FFFFFF;
     font-weight: 700;
 }
 
 h2 {
-    color: white;
+    color: #F8FAFC;
+    font-weight: 600;
 }
 
 h3 {
-    color: white;
+    color: #E5E7EB;
+    font-weight: 600;
 }
+
+p {
+    color: #C9D1D9;
+    font-size: 15px;
+}
+
+/* ------------------------------
+   KPI Cards
+------------------------------ */
 
 div[data-testid="metric-container"] {
 
-    background-color: #161B22;
+    background: linear-gradient(
+        135deg,
+        #161B22,
+        #1F2937
+    );
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    border: 1px solid #2E3A4E;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.35);
+
+    transition: all .30s ease;
+
+}
+
+div[data-testid="metric-container"]:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 12px 28px rgba(0,0,0,.45);
+
+}
+
+/* ------------------------------
+   Sidebar
+------------------------------ */
+
+section[data-testid="stSidebar"] {
+
+    background: #121822;
+
+    border-right: 1px solid #293548;
+
+}
+
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3 {
+
+    color: white;
+
+}
+
+/* ------------------------------
+   Buttons
+------------------------------ */
+
+.stButton > button {
+
+    width: 100%;
+
+    height: 48px;
 
     border-radius: 14px;
 
-    padding: 18px;
+    font-weight: 600;
 
-    border: 1px solid #2A2A2A;
+    border: none;
 
-    box-shadow: 0px 3px 8px rgba(0,0,0,0.35);
+    background: #1F6FEB;
 
-}
+    color: white;
 
-div[data-testid="metric-container"]:hover{
-
-    transform: translateY(-3px);
-
-    transition: 0.3s;
+    transition: .30s;
 
 }
 
-.stButton>button{
+.stButton > button:hover {
 
-    width:100%;
+    background: #388BFD;
 
-    border-radius:10px;
-
-    height:45px;
-
-    font-weight:bold;
+    transform: scale(1.02);
 
 }
 
-.stDataFrame{
+/* ------------------------------
+   Plotly Charts
+------------------------------ */
 
-    border-radius:12px;
+div[data-testid="stPlotlyChart"] {
+
+    background: #161B22;
+
+    border-radius: 18px;
+
+    padding: 10px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #293548;
 
 }
 
-footer{
+/* ------------------------------
+   DataFrame
+------------------------------ */
 
-    visibility:hidden;
+.stDataFrame {
+
+    border-radius: 18px;
+
+    overflow: hidden;
 
 }
 
-header{
+/* ------------------------------
+   Tables
+------------------------------ */
 
-    visibility:hidden;
+thead tr {
+
+    background: #1F2937;
 
 }
 
-#MainMenu{
+/* ------------------------------
+   Expander
+------------------------------ */
 
-    visibility:hidden;
+details {
 
+    background: #161B22;
+
+    border-radius: 14px;
+
+    padding: 12px;
+
+    border: 1px solid #293548;
+
+}
+
+/* ------------------------------
+   Horizontal Line
+------------------------------ */
+
+hr {
+
+    border: 1px solid #293548;
+
+}
+
+/* ------------------------------
+   Scrollbar
+------------------------------ */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+::-webkit-scrollbar-track {
+
+    background: #0E1117;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #2F81F7;
+
+    border-radius: 20px;
+
+}
+
+/* ------------------------------
+   Hide Streamlit Branding
+------------------------------ */
+
+#MainMenu {
+    visibility: hidden;
+}
+
+header {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
 }

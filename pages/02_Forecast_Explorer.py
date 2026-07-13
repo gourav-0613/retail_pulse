@@ -20,15 +20,30 @@ from utils.forecasting import (
 # =====================================================
 
 st.set_page_config(
-    page_title="Forecast Explorer",
-    page_icon="🔮",
+    page_title="RetailPulse | Forecast Explorer",
+    page_icon="assets/retailpulse-logo.png",
     layout="wide",
 )
 
-st.title("🔮 Forecast Explorer")
-st.markdown(
-    "Predict future sales using the best-performing forecasting model."
-)
+col1, col2 = st.columns([1, 8])
+
+with col1:
+    st.image(
+        "assets/icons/icon-forecast.svg",
+        width=45,
+    )
+
+with col2:
+    st.markdown(
+    "<h1 style='margin-top:8px;'>Forecast Explorer</h1>",
+    unsafe_allow_html=True,
+    )
+
+    st.caption(
+        "Predict future retail sales using Machine Learning models."
+    )
+
+st.markdown("---")
 
 # =====================================================
 # Load Dataset
@@ -128,7 +143,7 @@ comparison = compare_models(
 # KPI Metrics
 # =====================================================
 
-st.subheader("📊 Model Performance")
+st.subheader("Forecast Performance")
 
 col1, col2, col3 = st.columns(3)
 
@@ -156,7 +171,7 @@ st.divider()
 # Forecast Chart
 # =====================================================
 
-st.subheader("📈 Sales Forecast")
+st.subheader("Sales Forecast")
 
 history = monthly_df.copy()
 history["Type"] = "Historical"
@@ -184,10 +199,29 @@ fig = px.line(
     title="Historical vs Forecast Sales",
 )
 
+fig.update_traces(
+    line=dict(width=4),
+    marker=dict(size=8)
+)
+
+for trace in fig.data:
+
+    if trace.name == "Forecast":
+        trace.line.dash = "dash"
+
 fig.update_layout(
-    xaxis_title="Date",
+    template="plotly_dark",
+    height=500,
+    title_x=0.02,
+    xaxis_title="Month",
     yaxis_title="Sales",
     hovermode="x unified",
+    margin=dict(
+        l=20,
+        r=20,
+        t=60,
+        b=20
+    )
 )
 
 st.plotly_chart(
@@ -201,7 +235,7 @@ st.divider()
 # Forecast Table
 # =====================================================
 
-st.subheader("📅 Forecast Values")
+st.subheader("Forecast Results")
 
 display_df = forecast_df.copy()
 
@@ -228,7 +262,7 @@ st.dataframe(
 csv = display_df.to_csv(index=False).encode("utf-8")
 
 st.download_button(
-    label="⬇ Download Forecast CSV",
+    label="Download Forecast Results",
     data=csv,
     file_name="forecast_results.csv",
     mime="text/csv",
@@ -240,7 +274,7 @@ st.divider()
 # Model Comparison
 # =====================================================
 
-st.subheader("🏆 Model Comparison")
+st.subheader("Model Comparison")
 
 st.dataframe(
     comparison,
@@ -250,6 +284,8 @@ st.dataframe(
 
 best_model = comparison.iloc[0]["Model"]
 
-st.success(
-    f"✅ Best Model Selected: {best_model}"
+st.markdown("---")
+
+st.info(
+    f"Best Performing Model: {best_model}"
 )
