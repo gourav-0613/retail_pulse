@@ -51,7 +51,7 @@ An Interactive AI-powered Retail Analytics Dashboard built with Streamlit for Sa
 <img src="https://img.shields.io/badge/🚀%20Live%20Demo-Streamlit-red?style=for-the-badge">
 </a>
 
-<a href="https://colab.research.google.com/drive/1CTzulpUN_2HDFRcjteue_1XjjzAgT0Ek">
+<a href="https://colab.research.google.com/drive/1CIqiySXmS9Ib-oMXOsd2Hek24YrHUQoU?usp=sharing">
 <img src="https://img.shields.io/badge/📒%20Google%20Colab-Open-orange?style=for-the-badge">
 </a>
 
