@@ -24,42 +24,24 @@ An Interactive AI-powered Retail Analytics Dashboard built with Streamlit for Sa
 <p align="center">
 
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
-</p>
 
----
 <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white"/>
-</p>
 
----
 <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
-</p>
 
----
 <img src="https://img.shields.io/badge/Numpy-013243?style=for-the-badge&logo=numpy&logoColor=white"/>
-</p>
 
----
 <img src="https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white"/>
-</p>
 
----
 <img src="https://img.shields.io/badge/Statsmodels-0C55A5?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/XGBoost-EC6C00?style=for-the-badge"/>
-</p>
 
----
 <img src="https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white"/>
-</p>
 
----
 <img src="https://img.shields.io/badge/Machine%20Learning-00C853?style=for-the-badge"/>
-</p>
 
----
 <img src="https://img.shields.io/badge/Forecasting-3949AB?style=for-the-badge"/>
-</p>
 
----
 <img src="https://img.shields.io/badge/Data%20Analytics-6A1B9A?style=for-the-badge"/>
 
 </p>
@@ -73,7 +55,6 @@ An Interactive AI-powered Retail Analytics Dashboard built with Streamlit for Sa
 <img src="https://img.shields.io/badge/📒%20Google%20Colab-Open-orange?style=for-the-badge">
 </a>
 
-</p>
 ---
 
 # 📖 Overview
