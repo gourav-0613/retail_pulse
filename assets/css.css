@@ -221,19 +221,3 @@ hr {
     border-radius: 20px;
 
 }
-
-/* ------------------------------
-   Hide Streamlit Branding
------------------------------- */
-
-#MainMenu {
-    visibility: hidden;
-}
-
-header {
-    visibility: hidden;
-}
-
-footer {
-    visibility: hidden;
-}

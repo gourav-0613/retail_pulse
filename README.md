@@ -270,7 +270,7 @@ RetailPulse
 # 🛠️ Installation
 
 ```bash
-git git clone https://github.com/gourav-0613/retail_pulse.git
+git clone https://github.com/gourav-0613/retail_pulse.git
 
 cd RetailPulse
 
